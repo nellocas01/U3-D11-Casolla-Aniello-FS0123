@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Job from "./Job";
-import { gethandleSubmitAction } from "../redux/actions";
+import { handleSubmitAction } from "../redux/actions";
 import { useDispatch } from "react-redux";
 
 const MainSearch = () => {
@@ -21,7 +21,7 @@ const MainSearch = () => {
   useEffect((query) => {
     // getBooks();
 
-    dispatch(gethandleSubmitAction(query));
+    dispatch(handleSubmitAction(query));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -57,7 +57,7 @@ const MainSearch = () => {
           </Button>
         </Col>
         <Col xs={10} className="mx-auto">
-          <Form onSubmit={gethandleSubmitAction(query)}>
+          <Form onSubmit={handleSubmitAction}>
             <Form.Control
               type="search"
               value={query}

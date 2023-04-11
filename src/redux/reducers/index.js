@@ -24,7 +24,7 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         favourite: {
           ...state.favourite,
-          list: state.favourite.list.filter((fav) => fav !== action.payload),
+          list: state.favourite.list.filter((fav) => fav._id !== action.payload),
         },
       }
       // case SEARCH_WORK:

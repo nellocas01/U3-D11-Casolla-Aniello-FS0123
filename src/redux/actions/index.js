@@ -21,14 +21,14 @@ export const getJobsAction = (params) =>{
   };
 };
 
-export const gethandleSubmitAction = (query) =>{
+export const handleSubmitAction = (query) =>{
 
     return async(dispatch, getState) =>{
         try {
             const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?search=" + query + "&limit=20");
             if (response.ok) {
               const data = await response.json();
-              dispatch({type: SEARCH_WORK,payload: data });
+              dispatch({type: SEARCH_WORK, payload: data });
             } else {
               alert("Error fetching results");
             }
@@ -36,5 +36,4 @@ export const gethandleSubmitAction = (query) =>{
             console.log(error);
           }
         };
-      
-    }
+    };
