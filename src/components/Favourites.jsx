@@ -2,9 +2,10 @@ import { Container, Row, Col, ListGroup, Button } from "react-bootstrap";
 import { Trash } from "react-bootstrap-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { REMOVE_FROM_FAVOURITE } from "../redux/actions";
 
 const Favourites = () => {
-  const favourites = useSelector(state => state.favourite.list);
+  const favourites = useSelector((state) => state.favourite.list);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -28,8 +29,8 @@ const Favourites = () => {
                     className="me-2"
                     onClick={() =>
                       dispatch({
-                        type: "REMOVE_FROM_FAVOURITE",
-                        payload: fav
+                        type: REMOVE_FROM_FAVOURITE,
+                        payload: fav,
                       })
                     }
                   />
@@ -38,7 +39,8 @@ const Favourites = () => {
               ))
             ) : (
               <ListGroup.Item>
-                No favourites yet, go <Link to="/">back to Homepage</Link> to select some
+                No favourites yet, go <Link to="/">back to Homepage</Link> to
+                select some
               </ListGroup.Item>
             )}
           </ListGroup>
